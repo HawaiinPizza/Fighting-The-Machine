@@ -6,23 +6,17 @@ public class CharacterController : MonoBehaviour
 {
 
     // MOVEMENT
-    // This gets the input of the A and D, and returns
-    // a value between -1 and 1. If A and D aren't being 
-    // touch, it returns 0.
-    float InputX = Input.GetAxis("Horizontal");
 
-    float InputY = Input.GetAxis("Vertical");
-
-    //This is the speed the character moves horzontally.
+        //This is the speed the character moves horzontally.
     float SpeedX = 5;
 
-    // This is the speed the character jumps. 
+        // This is the speed the character jumps. 
     float SpeedYJ = 1;
 
-    //This is teh amount of translation, a jump to become a fall.
+        //This is teh amount of translation, a jump to become a fall.
     float FramesJ = 3;
 
-    //This is the speed the character falls.
+        //This is the speed the character falls.
     float SpeedYF = 3;
 
 
@@ -34,28 +28,31 @@ public class CharacterController : MonoBehaviour
     int JPunch = 5;
     int JKick = 4;
 
+    // Checks to see if in the air
+    bool inAir;
 
 
 
 
-    //This checks to see if the block
+
+        //This checks to see if the block
     bool isHigh;
 
-    //Divides the usual damage, by this number.
+        //Divides the usual damage, by this number.
     
     double blockDamage = 0.75;
 
-    //Is the time the player gets stunned.
+        //Is the time the player gets stunned.
     int StunTime = 4;
 
-    //Is a factor that applies to StunTime mulpitlivty, that lowers it.
+        //Is a factor that applies to StunTime mulpitlivty, that lowers it.
     double StunScale = .80;
 
 
-    // Is the factor that applys to all damages in a combo, that lowers it with repeated use.
+        // Is the factor that applys to all damages in a combo, that lowers it with repeated use.
     double DamageScale = .95;
 
-    //Is the difference in frame, for two attacks to be counted as a combo.
+        //Is the difference in frame, for two attacks to be counted as a combo.
     int ComboFrame = 4;
 
 
@@ -64,10 +61,23 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // This gets the input of the A and D, and returns
+        // a value between -1 and 1. If A and D aren't being 
+        // touch, it returns 0.
+    float InputX = Input.GetAxis("Horizontal");
+
+    float InputY = Input.GetAxis("Vertical");
         // This moves teh character, by InputX*SpeedX.
         float TransX = InputX * SpeedX;
         
         transform.Translate(TransX, 0, 0);
+
+        if (Input.GetButton("a"))
+        {
+
+
+
+        }
 
 
            
@@ -92,15 +102,12 @@ public class CharacterController : MonoBehaviour
             }
 
             // Checks if the player is touchign the floor.
-            bool nearFloor = false;
 
+            isAir = true;
             // This moves the player odwn, by a factor of SpeedYF, till they're close to the floor
-            while (!nearFloor)
+            while (isAir)
             {
-                transform.Translate(0, TransY * SpeedYJ, 0);
-
-
-
+                transform.Translate(0, SpeedYJ, 0);
 
             }
         }
@@ -108,7 +115,36 @@ public class CharacterController : MonoBehaviour
         
     }
 
+    void PunAttack()
+    {
+        if (isAir)
+        {
+            // Attack enemy with Gpunch
+        }
+        else
+        {
+            // Attack enemy with Jpunch
+
+        }
+
+
+    }
+
     
 
+    void Kickttack()
+    {
+        if (isAir)
+        {
+            // Attack enemy with GKick
+        }
+        else
+        {
+            // Attack enemy with JKick
+
+        }
+
+
+    }
        
 }
