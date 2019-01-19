@@ -30,7 +30,7 @@ public class CharacterCon : MonoBehaviour
     int JKick = 4;
 
     // Checks to see if in the air
-    bool isAir;
+    bool isAir=false;
 
 
 
