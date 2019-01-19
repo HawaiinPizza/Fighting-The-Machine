@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/matchEnd.unity
     guid: 9c5d1cbc26d0b8d4bbb80272c019f4c8
+  - enabled: 1
+    path: Assets/_Scenes/credits.unity
+    guid: 861df088b381bc44baaaef42a2685a85
   m_configObjects: {}

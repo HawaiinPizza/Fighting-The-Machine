@@ -16,4 +16,11 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Program is terminating.");
         Application.Quit();
     }
+
+    // Add in the Scene Manager to go to the credit screen
+    public void RunCredits()
+    {
+        Debug.Log("Rolling credits.");
+        SceneManager.LoadScene(4);
+    }
 }
