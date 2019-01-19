@@ -11,100 +11,7 @@ namespace Assets.Scripts
     {
         private uint bitFlag;
 
-        
-
-       /* public gameState(
-            bool p_stunned,
-            bool p_frameCooldown,
-            bool p_inAir,
-            bool p_mBlock,
-            bool p_lBlock,
-            bool p_punch,
-            bool p_kick,
-            bool p_engaging,
-            bool p_disengaging,
-            bool o_inAir,
-            bool o_mBlock,
-            bool o_lBlock,
-            bool o_punch,
-            bool o_kick,
-            bool o_engaging,
-            bool o_disengaging,
-            bool inRange
-            ) {
-
-            bitFlag = 0;
-
-            //Sets the bit flags to each boolean
-            if (p_stunned) {
-                bitFlag = bitFlag | (1 << 0);
-            }
-            if (p_frameCooldown)
-            { 
-                bitFlag = bitFlag | (1 << 1);
-            }
-            if (p_inAir)
-            {
-                bitFlag = bitFlag | (1 << 2);
-            }
-            if (p_mBlock)
-            {
-                bitFlag = bitFlag | (1 << 3);
-            }
-            if (p_lBlock)
-            {
-                bitFlag = bitFlag | (1 << 4);
-            }
-            if (p_punch)
-            {
-                bitFlag = bitFlag | (1 << 5);
-            }
-            if (p_kick)
-            {
-                bitFlag = bitFlag | (1 << 6);
-            }
-            if (p_engaging)
-            {
-                bitFlag = bitFlag | (1 << 7);
-            }
-            if (p_disengaging)
-            {
-                bitFlag = bitFlag | (1 << 8);
-            }
-            if (o_inAir)
-            {
-                bitFlag = bitFlag | (1 << 9);
-            }
-            if (o_mBlock)
-            {
-                bitFlag = bitFlag | (1 << 10);
-            }
-            if (o_lBlock)
-            {
-                bitFlag = bitFlag | (1 << 11);
-            }
-            if (o_punch)
-            {
-                bitFlag = bitFlag | (1 << 12);
-            }
-            if (o_kick)
-            {
-                bitFlag = bitFlag | (1 << 13);
-            }
-            if (o_engaging)
-            {
-                bitFlag = bitFlag | (1 << 14);
-            }
-            if (o_disengaging)
-            {
-                bitFlag = bitFlag | (1 << 15);
-            }
-            if (inRange)
-            {
-                bitFlag = bitFlag | (1 << 16);
-            }
-
-        }*/
+       
 
         public gameState(uint id)
         {
@@ -143,10 +50,20 @@ namespace Assets.Scripts
 
     public class AIPath {
         private byte[] adjcencyMatrixPathing;
-        public const uint numStates = 131072;
+        public const int numStates = 131072;
 
         public AIPath(byte[] path) {
             adjcencyMatrixPathing = path;
+        }
+
+        public byte getByte(int index)
+        {
+            return adjcencyMatrixPathing[index];
+        }
+
+        public void setByte(int index, byte newValue)
+        {
+            adjcencyMatrixPathing[index] = newValue;
         }
 
         public void actAI(gameState currentState) {
