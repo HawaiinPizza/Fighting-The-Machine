@@ -191,6 +191,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &319011809 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3289622469622376457, guid: 8abb287f708040c4a9cde466cbea1e52,
+    type: 3}
+  m_PrefabInstance: {fileID: 805002684}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &513861304
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,8 +355,78 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8932241681812939727, guid: 8abb287f708040c4a9cde466cbea1e52,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279316977391270227, guid: 8abb287f708040c4a9cde466cbea1e52,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.23356095
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279316977391270227, guid: 8abb287f708040c4a9cde466cbea1e52,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.45560962
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279316977391270227, guid: 8abb287f708040c4a9cde466cbea1e52,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.13521948
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279316977391270227, guid: 8abb287f708040c4a9cde466cbea1e52,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.36956102
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279316977391270254, guid: 8abb287f708040c4a9cde466cbea1e52,
+        type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 836662250}
+    - target: {fileID: 7279316977391270254, guid: 8abb287f708040c4a9cde466cbea1e52,
+        type: 3}
+      propertyPath: checkRadius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279316977391270254, guid: 8abb287f708040c4a9cde466cbea1e52,
+        type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 768
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8abb287f708040c4a9cde466cbea1e52, type: 3}
+--- !u!1 &836662249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 836662250}
+  m_Layer: 0
+  m_Name: jokjk
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &836662250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836662249}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.028, y: -0.467, z: 1.5657144}
+  m_LocalScale: {x: 0.003809524, y: 0.003809524, z: 0.003809524}
+  m_Children: []
+  m_Father: {fileID: 319011809}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1582214164
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,6 +516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1677024153}
   - component: {fileID: 1677024152}
+  - component: {fileID: 1677024154}
   m_Layer: 0
   m_Name: gameFloor
   m_TagString: Untagged
@@ -509,6 +586,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1677024154
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677024151}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 24, y: 6}
+    newSize: {x: 24, y: 6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 24, y: 6}
+  m_EdgeRadius: 0
 --- !u!1 &1795023546
 GameObject:
   m_ObjectHideFlags: 0
