@@ -28,13 +28,14 @@ public class CharacterController : MonoBehaviour
 
     //ATTACK
 
-    //If a punch as a G in the beginning, that means it's a grounded 
-    // attack. If it's a J, it's a jumping varrient.
+       // If it's G, that its an attack on the ground. If it's a J, than it's an attack jumping.
+    int GPunch = 4;
+    int GKick = 3;
+    int JPunch = 5;
+    int JKick = 4;
 
-    //
-    int[] Damages= { 4, 3, 5, 4 };
 
-    //Getting Attacked
+
 
 
     //This checks to see if the block
@@ -68,8 +69,6 @@ public class CharacterController : MonoBehaviour
         
         transform.Translate(TransX, 0, 0);
 
-
-        
 
            
           
