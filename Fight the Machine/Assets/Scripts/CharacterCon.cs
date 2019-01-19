@@ -7,18 +7,9 @@ public class CharacterCon : MonoBehaviour
 {
 
     // MOVEMENT
-
-    //This is the speed the character moves horzontally.
-    float SpeedX = 5;
-
-    // This is the speed the character jumps. 
-    float SpeedYJ = 1;
-
-    //This is teh amount of translation, a jump to become a fall.
-    float FramesJ = 3;
-
-    //This is the speed the character falls.
-    float SpeedYF = 3;
+    public float speed;
+    public float jumpForce;
+    private float moveInput;
 
 
     //ATTACK
@@ -28,13 +19,6 @@ public class CharacterCon : MonoBehaviour
     int GKick = 3;
     int JPunch = 5;
     int JKick = 4;
-
-    // Checks to see if in the air
-    bool isAir=false;
-
-
-
-
 
     //This checks to see if the block
     bool isHigh;
@@ -55,6 +39,7 @@ public class CharacterCon : MonoBehaviour
 
     //Is the difference in frame, for two attacks to be counted as a combo.
     int ComboFrame = 4;
+
 
 
 
@@ -104,9 +89,9 @@ public class CharacterCon : MonoBehaviour
 
         // Checks if the player is touchign the floor.
 
-        isAir = true;
+         = true;
         // This moves the player odwn, by a factor of SpeedYF, till they're close to the floor
-        while (isAir)
+        while ()
         {
             transform.Translate(0, SpeedYJ, 0);
 
@@ -118,7 +103,7 @@ public class CharacterCon : MonoBehaviour
     //Punch
     void PunAttack()
     {
-        if (isAir)
+        if ()
         {
             // Attack enemy with Gpunch
         }
@@ -136,7 +121,7 @@ public class CharacterCon : MonoBehaviour
     //Kick
     void Kickttack()
     {
-        if (isAir)
+        if ()
         {
             // Attack enemy with GKick
         }
