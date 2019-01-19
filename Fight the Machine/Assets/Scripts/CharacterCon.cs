@@ -11,6 +11,12 @@ public class CharacterCon : MonoBehaviour
     public float jumpForce;
     private float moveInput;
 
+    float SpeedX = 5;
+
+    int FramesJ = 3;
+
+    float SpeedYJ = 5;
+
 
     //ATTACK
 
@@ -89,13 +95,7 @@ public class CharacterCon : MonoBehaviour
 
         // Checks if the player is touchign the floor.
 
-         = true;
         // This moves the player odwn, by a factor of SpeedYF, till they're close to the floor
-        while ()
-        {
-            transform.Translate(0, SpeedYJ, 0);
-
-        }
     }
 
             
@@ -103,16 +103,8 @@ public class CharacterCon : MonoBehaviour
     //Punch
     void PunAttack()
     {
-        if ()
-        {
-            // Attack enemy with Gpunch
-        }
-        else
-        {
-            // Attack enemy with Jpunch
 
-        }
-
+            
 
     }
 
@@ -121,16 +113,6 @@ public class CharacterCon : MonoBehaviour
     //Kick
     void Kickttack()
     {
-        if ()
-        {
-            // Attack enemy with GKick
-        }
-        else
-        {
-            // Attack enemy with JKick
-
-        }
-
 
     }
        
