@@ -20,9 +20,9 @@ namespace Assets.Scripts
 
             //Sort the batch
             AIPath tempPath; metricAI tempMetric;
-            int flag = 0, j;
+            
 
-            for(int i = 1; i < matchNum - 1; i++)
+            for(int i = 1, j; i < matchNum - 1; i++)
             {
                 tempPath = paths[i];
                 tempMetric = metrics[i];
