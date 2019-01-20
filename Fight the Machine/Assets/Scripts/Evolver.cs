@@ -77,7 +77,7 @@ namespace Assets.Scripts
                 for (int j = 0; j < AIPath.numStates; j++)
                 {
 
-                    AIMatrix[j] = (byte)(1 << UnityEngine.Random.Range(0, 7));
+                    AIMatrix[j] = (byte)(1 << UnityEngine.Random.Range(0, 8));
                 }
 
                 paths[i] = new AIPath(AIMatrix);
@@ -115,8 +115,8 @@ namespace Assets.Scripts
 
     public class metricAI
     {
-        public int roundsWon;
-        public int matchTime;
-        public int health;
+        public int roundsWon = 0;
+        public int matchTime = 0;
+        public int health = 0;
     }
 }

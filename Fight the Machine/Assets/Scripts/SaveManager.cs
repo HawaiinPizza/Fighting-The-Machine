@@ -22,6 +22,7 @@ namespace Assets.Scripts
     {
         public static int matchesSinceEvo = 0;
         public static SaveData saveData = new SaveData();
+        public static bool[] dataExists = { false, false, false };
 
         public static void LoadSaveData(int profile)
         {
@@ -46,6 +47,7 @@ namespace Assets.Scripts
                 binaryFormatter.Serialize(fileStream, saveData);
             }
 
+            dataExists[profile - 1] = true;
             Debug.Log(fileName);
         }
 
