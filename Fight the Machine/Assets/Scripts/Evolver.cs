@@ -9,10 +9,10 @@ namespace Assets.Scripts
 {
     public class Evolver
     {
-<<<<<<< HEAD
-=======
 
->>>>>>> AI
+
+
+
         public const int matchNum = 20;
         public const double ascendingPercent = 0.5;
         public const int numCrossPol = matchNum * 1000;
@@ -24,10 +24,10 @@ namespace Assets.Scripts
 
             //Sort the batch
             AIPath tempPath; metricAI tempMetric;
-<<<<<<< HEAD
+
             
-=======
->>>>>>> AI
+
+
 
             for(int i = 1, j; i < matchNum - 1; i++)
             {
@@ -119,20 +119,12 @@ namespace Assets.Scripts
             }
         }
     }
-
-<<<<<<< HEAD
-    public class metricAI
-    {
-        public int roundsWon;
-        public int matchTime;
-        public int health;
-=======
     [Serializable]
     public class metricAI
     {
         public int roundsWon = 0;
         public int matchTime = 0;
         public int health = 0;
->>>>>>> AI
+
     }
 }
