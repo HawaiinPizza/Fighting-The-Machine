@@ -8,19 +8,29 @@ public class CharacterCon : MonoBehaviour
 {
 
 
-    public float speed, jumpForce, gravity;
+    // Consants. speedx is teh speed of horzontal movement.
+    // JumpVel is how powerful the jump is.
+    // Gravity is teh acceleration that points to the -i hat direction.
+    public float speedx, jumpVel, gravity;
+
+    //This is a float to get input for the x-axis.
     private float moveInput;
 
+    //Rigidbody. Important for anaimaton
     private Rigidbody2D rb;
 
+    //Used to switch right to left.
     private bool facingRight=true;
 
 
+    //See if the player is on the ground. I followed a tutoiral on it, and
+    // it didn't really say why it worked.
     private bool isGrounded;
     public Transform groundCheck;
     public float checkRadius;
     public LayerMask whatIsGround;
 
+    // See if the player can jump.
     bool canJump=true;
 
 
@@ -35,41 +45,34 @@ public class CharacterCon : MonoBehaviour
 
     private void Update()
     {
-
-        if (isGrounded == true)
-        {
-            canJump = true;
-        }
-        else
-        {
-            canJump = false;
-            transform.Translate(Vector3.down * gravity * Time.deltaTime);
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow) && canJump ==true)
-        {
-
-            rb.velocity = Vector2.up * jumpForce;
-            canJump = false;
-            transform.Translate(Vector3.down * gravity * Time.deltaTime);
-        }
-
-
         
+        if (Input.GetKeyDown("space") && isGrounded==true)
+        {
+            rb.AddForce(transform.up * jumpVel);
+        
+        }
+
 
     }
 
-    void fall()
-    {
 
-    }
+    // while the player isn't grounded, change their vertical velocity by a rate of gravity.
     private void FixedUpdate()
     {
+        //Checks to see if isGrounded
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius);
-        moveInput = Input.GetAxis("Horz");
-            rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-            Debug.Log(rb.velocity + " " + moveInput + " " + speed + " " + canJump);
 
+        //Gets input on the x-axis.
+        moveInput = Input.GetAxis("Horz");
+
+        //Moves the player horzonitally, by a factor of speedx.
+        rb.velocity = new Vector2(moveInput * speedx, rb.velocity.y);
+
+
+        Debug.Log(rb.velocity + " " + moveInput + " " + speedx + " " + canJump);
+
+        //If the plaeyr is facing the right and is pressing the left, flip. If the other way around,
+        // still flip.
         if (facingRight == false &&  moveInput > 0)
         {
             Flip();
@@ -80,6 +83,7 @@ public class CharacterCon : MonoBehaviour
         }
     }
 
+    //Flips the player to the other direction.
     void Flip()
     {
         facingRight = !facingRight;
