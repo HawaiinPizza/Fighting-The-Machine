@@ -393,7 +393,22 @@ PrefabInstance:
     - target: {fileID: 7279316977391270254, guid: 8abb287f708040c4a9cde466cbea1e52,
         type: 3}
       propertyPath: whatIsGround.m_Bits
-      value: 768
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279316977391270254, guid: 8abb287f708040c4a9cde466cbea1e52,
+        type: 3}
+      propertyPath: speedx
+      value: 105
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279316977391270254, guid: 8abb287f708040c4a9cde466cbea1e52,
+        type: 3}
+      propertyPath: jumpVel
+      value: 105
+      objectReference: {fileID: 0}
+    - target: {fileID: 7279316977391270254, guid: 8abb287f708040c4a9cde466cbea1e52,
+        type: 3}
+      propertyPath: gravity
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8abb287f708040c4a9cde466cbea1e52, type: 3}
