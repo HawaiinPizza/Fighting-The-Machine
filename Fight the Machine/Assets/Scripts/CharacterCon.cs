@@ -104,20 +104,23 @@ public class CharacterCon : MonoBehaviour
     // while the player isn't grounded, change their vertical velocity by a rate of gravity.
     private void FixedUpdate() {
 
-        if (Input.GetKeyDown("j"))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             punch();
+            Debug.Log("PUNCH");
         }
-        if (Input.GetKeyDown("k"))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             kick();
+            Debug.Log("KICK");
         }
 
-        if (Input.GetKeyDown("l"))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             if (Input.GetAxis("Vertical") > 0)
             {
                 Block(true,true);
+                Debug.Log("BLOCK");
             }
             else
             {
@@ -138,9 +141,10 @@ public class CharacterCon : MonoBehaviour
 
         moveXaxis(moveInput);
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-           // jump();
+           jump();
+            Debug.Log("JUMP");
         }
 
     }

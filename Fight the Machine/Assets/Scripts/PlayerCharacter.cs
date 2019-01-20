@@ -24,6 +24,11 @@ public class PlayerCharacter : MonoBehaviour
 
     void Update()
     {
+       
+    }
+
+    private void FixedUpdate()
+    {
         if (Input.GetKey(KeyCode.RightArrow))
             transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -32,10 +37,7 @@ public class PlayerCharacter : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (Input.GetKey(KeyCode.UpArrow))
             rb.AddForce(Vector2.up * jumpPower);
-    }
 
-    private void FixedUpdate()
-    {
         if (Input.GetKeyDown(KeyCode.D))
         {
             //Move Left

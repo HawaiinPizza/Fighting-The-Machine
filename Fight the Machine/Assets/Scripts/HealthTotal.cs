@@ -9,17 +9,19 @@ public class HealthTotal : MonoBehaviour
 {
 
     Text txt;
+    GameObject player;
 
     // Use this for initialization
     void Start()
     {
         txt = gameObject.GetComponent<Text>();
-        txt.text = "Player: " + GetComponent<PlayerCharacter>().getHealth();
+        player = GameObject.Find("Player");
+        txt.text = "Player: " + player.GetComponent<PlayerCharacter>().getHealth();
     }
 
     // Update is called once per frame
     public void Update()
     {
-        txt.text = "Player: " + GetComponent<PlayerCharacter>().getHealth();
+        txt.text = "Player: " + player.GetComponent<PlayerCharacter>().getHealth();
     }
 }
