@@ -9,6 +9,7 @@ namespace Assets.Scripts
 {
     public class Evolver
     {
+
         public const int matchNum = 20;
         public const double ascendingPercent = 0.5;
         public const int numCrossPol = matchNum * 1000;
@@ -112,10 +113,11 @@ namespace Assets.Scripts
         }
     }
 
+    [Serializable]
     public class metricAI
     {
-        public int roundsWon;
-        public int matchTime;
-        public int health;
+        public int roundsWon = 0;
+        public int matchTime = 0;
+        public int health = 0;
     }
 }
