@@ -48,6 +48,7 @@ namespace Assets.Scripts
         }
     }
 
+    [Serializable]
     public class AIPath {
         private byte[] adjcencyMatrixPathing;
         public const int numStates = 131072;
