@@ -5,8 +5,10 @@ using Assets.Scripts;
 
 public class loadProfile : MonoBehaviour
 {
-   public static void load(int profile)
+   public void load(int profile)
     {
+        Debug.Log("load is executed");
+
         if(SaveManager.dataExists[profile - 1])
         {
             SaveManager.LoadSaveData(profile);

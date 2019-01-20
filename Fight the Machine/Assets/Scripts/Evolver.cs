@@ -113,6 +113,7 @@ namespace Assets.Scripts
         }
     }
 
+    [Serializable]
     public class metricAI
     {
         public int roundsWon = 0;

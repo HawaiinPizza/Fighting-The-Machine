@@ -22,7 +22,7 @@ namespace Assets.Scripts
     {
         public static int matchesSinceEvo = 0;
         public static SaveData saveData = new SaveData();
-        public static bool[] dataExists = { false, false, false };
+        public static bool[] dataExists = profileStatus();
 
         public static void LoadSaveData(int profile)
         {
@@ -47,8 +47,19 @@ namespace Assets.Scripts
                 binaryFormatter.Serialize(fileStream, saveData);
             }
 
-            dataExists[profile - 1] = true;
             Debug.Log(fileName);
+        }
+
+        private static bool[] profileStatus()
+        {
+            bool[] dExists = new bool[3];
+            for(int i = 1; i <= 3; i++)
+            {
+                long l = new System.IO.FileInfo(Path.Combine(Application.persistentDataPath, "save_data/profile" + i + ".dat")).Length;
+                dExists[i-1] = l != 0;
+            }
+
+            return dExists;
         }
 
     }
