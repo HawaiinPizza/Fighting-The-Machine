@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts;
+using UnityEngine.SceneManagement;
 
 public class loadProfile : MonoBehaviour
 {
@@ -32,5 +33,7 @@ public class loadProfile : MonoBehaviour
 
             SaveManager.SaveSaveData(profile);
         }
+
+        SceneManager.LoadScene(2);
     }
 }

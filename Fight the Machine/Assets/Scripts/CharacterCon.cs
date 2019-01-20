@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -7,6 +6,10 @@ using UnityEngine;
 public class CharacterCon : MonoBehaviour
 {
 
+    // Time paramters
+
+    float Cooldownpause = 2;
+    int CooldownScale = 2;
 
     // Consants. speedx is teh speed of horzontal movement.
     // JumpVel is how powerful the jump is.
@@ -28,63 +31,186 @@ public class CharacterCon : MonoBehaviour
     private bool isGrounded;
     public Transform groundCheck;
     public float checkRadius;
-    public LayerMask whatIsGround;
 
-    // See if the player can jump.
-    bool canJump=true;
+    bool canhit = true;
+    bool canmove = true;
+
+    bool isBlock = false;
+
+    float startTime;
+
+    private void Awake()
+    {
+        startTime = Time.time;
+    }
 
 
 
 
 
 
-    private void Start()
+    public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Debug.Log(rb);
+    
     }
 
     private void Update()
     {
-        
-        if (Input.GetKeyDown("space") && isGrounded==true)
-        {
-            rb.AddForce(transform.up * jumpVel);
-        
-        }
-
-
+       
     }
 
-
-    // while the player isn't grounded, change their vertical velocity by a rate of gravity.
-    private void FixedUpdate()
+    public void moveXaxis(float Direction)
     {
+        if (canmove)
+        {
+            //Moves the player horzonitally, by a factor of speedx.
+             rb.velocity = new Vector2(Direction * speedx, rb.velocity.y);
+             Debug.Log(rb.velocity);
+
+            if (Direction > 0 && !facingRight)
+            {
+                Flip();
+            }
+
+            if (Direction < 0 && facingRight)
+            {
+                Flip();
+            }
+        } 
+        else
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+
+        }
+    }
+
+    public void jump()
+    {
+            if (canmove)
+            {
+                if (isGrounded == true)
+                {
+                    Debug.Log("I'm grounded");
+                    rb.AddForce(transform.up * jumpVel);
+                }
+            }
+            else
+            {
+                rb.AddForce(transform.up * 0);
+            }
+    }
+    // while the player isn't grounded, change their vertical velocity by a rate of gravity.
+    private void FixedUpdate() {
+
+        if (Input.GetKeyDown("j"))
+        {
+            punch();
+        }
+        if (Input.GetKeyDown("k"))
+        {
+            kick();
+        }
+
+        if (Input.GetKeyDown("l"))
+        {
+            if (Input.GetAxis("Vertical") > 0)
+            {
+                Block(true,true);
+            }
+            else
+            {
+                Block(false,true);
+            }
+
+        }
+        else if (Input.GetKeyUp("l"))
+        {
+                Block(false,false);
+
+        }
         //Checks to see if isGrounded
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius);
 
         //Gets input on the x-axis.
         moveInput = Input.GetAxis("Horz");
 
-        //Moves the player horzonitally, by a factor of speedx.
-        rb.velocity = new Vector2(moveInput * speedx, rb.velocity.y);
+        moveXaxis(moveInput);
 
-
-        Debug.Log(rb.velocity + " " + moveInput + " " + speedx + " " + canJump);
-
-        //If the plaeyr is facing the right and is pressing the left, flip. If the other way around,
-        // still flip.
-        if (facingRight == false &&  moveInput > 0)
+        if (Input.GetKeyDown("space"))
         {
-            Flip();
+           // jump();
         }
-        if (facingRight == true &&  moveInput < 0)
+
+    }
+
+        private IEnumerator HitDelay()
+    {
+        canhit = false;
+
+        yield return new WaitForSeconds(Cooldownpause);
+
+        canhit = true;
+    }
+    public void punch()
+    {
+
+
+        if (canhit == true)
         {
-            Flip();
+            StartCoroutine("HitDelay");
+            Debug.Log("PUNCH");
+
+
+        }
+
+    }
+
+    public void kick()
+    {
+
+        if (canhit == true)
+        {
+            StartCoroutine("HitDelay");
+            Debug.Log("Kick");
+
+
+        }
+    }
+
+    public void Block(bool highBlock, bool isBlock)
+    {
+
+        if (isBlock)
+        {
+            if (isGrounded)
+            {
+                if (highBlock)
+                {
+
+                    Debug.Log("HIGH");
+
+                }
+                else
+                {
+
+                    Debug.Log("Low");
+                }
+                canmove = false;
+                canhit = false;
+            }
+        }
+        else if (!isBlock)
+        {
+
+            canmove = true;
+            canhit = true;
         }
     }
 
     //Flips the player to the other direction.
-    void Flip()
+    private void Flip()
     {
         facingRight = !facingRight;
 
@@ -92,6 +218,5 @@ public class CharacterCon : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
     }
-
 
 }
