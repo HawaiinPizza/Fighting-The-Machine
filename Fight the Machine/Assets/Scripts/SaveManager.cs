@@ -55,8 +55,16 @@ namespace Assets.Scripts
             bool[] dExists = new bool[3];
             for(int i = 1; i <= 3; i++)
             {
-                long l = new System.IO.FileInfo(Path.Combine(Application.persistentDataPath, "save_data/profile" + i + ".dat")).Length;
-                dExists[i-1] = l != 0;
+                try{
+                    long l = new System.IO.FileInfo(Path.Combine(Application.persistentDataPath, "save_data/profile" + i + ".dat")).Length;
+                    dExists[i - 1] = l != 0;
+                }
+                catch(Exception e)
+                {
+                    Debug.Log(e);
+                    System.IO.File.Create(Path.Combine(Application.persistentDataPath, "save_data/profile" + i + ".dat"));
+                    dExists[i - 1] = false;
+                }
             }
 
             return dExists;
